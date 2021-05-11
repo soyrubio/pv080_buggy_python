@@ -26,7 +26,7 @@ class RunBinSh(object):
 @app.route('/')
 def index():
     module = flask.request.args.get("module")
-    exec("import urllib%s as urllib" % module)  # Noncompliant
+    exec("import urllib%s as urllib", (username, ))  # Noncompliant
 
 
 print(base64.b64encode(cPickle.dumps(RunBinSh())))
